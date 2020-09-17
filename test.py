@@ -1,4 +1,6 @@
 import os
+from get_ip import getIP
+from get_os import getos
 
 def dir(path):
     try:
