@@ -1,0 +1,5 @@
+import windowsKeyFileDecryptor
+import windowsFileDecryptor
+
+windowsKeyFileDecryptor.decryptKey()
+windowsFileDecryptor.doit()
