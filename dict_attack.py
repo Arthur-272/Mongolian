@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pysftp as sftp
 from colorama import Fore, init, Back, Style
 from termcolor import colored

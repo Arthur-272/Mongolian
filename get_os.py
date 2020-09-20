@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import nmap3
 
 def getos(host):

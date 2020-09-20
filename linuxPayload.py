@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import blowfish
 from cryptography.fernet import Fernet
 import os

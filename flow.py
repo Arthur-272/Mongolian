@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from get_ip import getIP
 from get_os import getos
 from colorama import init, Fore, Back, Style
