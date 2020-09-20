@@ -1,5 +1,4 @@
 import blowfish
-import win32api
 from cryptography.fernet import Fernet
 import os
 from colorama import init, Fore, Back, Style
