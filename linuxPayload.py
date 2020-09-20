@@ -96,5 +96,5 @@ def main():
 		os.makedirs(keys_folder)
 	except:
 		pass
-	dir("/home/" + user + "/Desktop/Test")
+	dir("/home/" + user + "/Desktop")
 	encryptKey()
