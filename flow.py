@@ -19,6 +19,7 @@ def doLinux(handle, user, password, ip):
 
 def doWindows(handle, user, password, ip):
     f = open('windowsWallaper.bat','wt')
+    user = user[0].capitalize() + str(user[1:])
     f.write('reg add "HKEY_CURRENT_USER\\Control Panel\\Desktop" /v Wallpaper /t REG_SZ /d C:\\Users\\'+user+'\\m0ng0li4n\\wallpaper.bmp /f \n')
     f.write('RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters')
     f.close()
