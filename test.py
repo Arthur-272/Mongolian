@@ -1,3 +1,3 @@
-f = open('/home/kali/Desktop/test.txt','wb')
-f.write("Hello")
-f.close()
+f = open('C:\\Users\\Radhey\\OneDrive\\Desktop\\test.txt','at+')
+ips = f.readlines()
+print(ips)
